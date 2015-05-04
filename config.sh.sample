@@ -107,9 +107,9 @@
 #option GzipImage
 
 # Create a user account with the specified username.
-# Password will be the same as the user name.
+# Password will be the same as the user name if unspecified.
 #
-#option User <username>
+#option User <username> [password]
 
 # Takes a size argument (e.g., "768mb") and adds a swap file
 # to the UFS partition of the indicated size.  This also adds
