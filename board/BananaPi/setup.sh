@@ -7,7 +7,7 @@ TARGET_ARCH=armv6
 
 UBOOT_PATH="/usr/local/share/u-boot/${BPI_UBOOT}"
 
-bananapi_pi_check_uboot ( ) {
+banana_pi_check_uboot ( ) {
     uboot_port_test ${BPI_UBOOT} ${BPI_UBOOT_BIN}
 }
 strategy_add $PHASE_CHECK banana_pi_check_uboot
