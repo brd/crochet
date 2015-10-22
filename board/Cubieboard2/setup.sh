@@ -1,6 +1,6 @@
 KERNCONF=A20
 UBLDR_LOADADDR=0x42000000
-SUNXI_UBOOT="u-boot-bananapi"
+SUNXI_UBOOT="u-boot-cubieboard2"
 SUNXI_UBOOT_BIN="u-boot.img"
 IMAGE_SIZE=$((1000 * 1000 * 1000))
 TARGET_ARCH=armv6
@@ -26,7 +26,7 @@ strategy_add $PHASE_CHECK allwinner_check_uboot
 strategy_add $PHASE_BUILD_OTHER freebsd_ubldr_build UBLDR_LOADADDR=${UBLDR_LOADADDR}
 strategy_add $PHASE_BOOT_INSTALL freebsd_ubldr_copy_ubldr .
 
-# Put the kernel on the FreeBSD UFS partition.
+# BeagleBone puts the kernel on the FreeBSD UFS partition.
 strategy_add $PHASE_FREEBSD_BOARD_INSTALL board_default_installkernel .
 # overlay/etc/fstab mounts the FAT partition at /boot/msdos
 strategy_add $PHASE_FREEBSD_BOARD_INSTALL mkdir -p boot/msdos

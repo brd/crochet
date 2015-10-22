@@ -23,6 +23,7 @@
 #board_setup Alix
 #board_setup BananaPi
 #board_setup BeagleBone
+#board_setup Cubieboard2
 #board_setup Chromebook
 #board_setup GenericI386
 #board_setup PandaBoard
@@ -30,6 +31,7 @@
 #board_setup RadxaRockLite
 #board_setup Soekris
 #board_setup RaspberryPi
+#board_setup RaspberryPi2
 #board_setup VersatilePB
 #board_setup ZedBoard
 #board_setup Wandboard
@@ -154,6 +156,9 @@
 #option NanoBSD '/dev/sd0' 1g
 #option NanoBSD /dev/mmcsd0 1g 2 16m
 
+# Enable NTP daemon
+#option Ntpd
+
 # Each board picks a default KERNCONF but you can override it.
 #
 #KERNCONF=MYCONF
@@ -223,9 +228,9 @@
 #FREEBSD_EXTRA_ARGS=""
 
 # Build jobs.  The number of make jobs to run in parallel.
-# Defaults to: -j $(sysctl -n hw.ncpu)
-#WORLDJOBS="-j 4"
-#KERNJOBS="-j 4"
+# Defaults to: $(sysctl -n hw.ncpu)
+#WORLDJOBS="4"
+#KERNJOBS="4"
 
 # You can specify a custom src.conf or make.conf; the defaults are:
 #

@@ -3,3 +3,4 @@
 md		/tmp		mfs rw,noatime,-s30m	0 0
 md		/var/log	mfs rw,noatime,-s15m	0 0
 md		/var/tmp	mfs rw,noatime,-s12m	0 0
+

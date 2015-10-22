@@ -30,9 +30,13 @@ __MAKE_CONF=/dev/null
 
 if [ -z ${WORLDJOBS} ]; then
 	WORLDJOBS="-j $(sysctl -n hw.ncpu)"
+else
+	WORLDJOBS="-j${WORLDJOBS}"
 fi
 if [ -z ${KERNJOBS} ]; then
 	KERNJOBS="-j $(sysctl -n hw.ncpu)"
+else
+	KERNJOBS="-j${KERNJOBS}"
 fi
 
 freebsd_default_makeobjdirprefix ( ) {
@@ -368,7 +372,11 @@ freebsd_ubldr_copy ( ) {
 }
 
 freebsd_ubldr_copy_ubldr ( ) {
-    echo "Installing ubldr in $1"
+    if [ $1 = "." ]; then
+	echo "Installing ubldr in ${PWD}"
+    else
+	echo "Installing ubldr in $1"
+    fi
     CONF=${TARGET_ARCH}-${KERNCONF}
     cp ${WORKDIR}/ubldr-${CONF}/boot/ubldr* $1 || exit 1
 }
